@@ -59,10 +59,6 @@ public class OrderTest {
         assertFalse(order.isSent());
         SurfaceMailBus surface = mock(SurfaceMailBus.class);
         Shipment shipment = mock(Shipment.class);
-        Address address = mock(Address.class);
-        when(shipment.getSender()).thenReturn(address);
-        when(shipment.getRecipient()).thenReturn(address);
-        when(surface.send(any(Object.class), any(Address.class), any(Address.class))).thenReturn(true);
         when(shipment.isShipped()).thenReturn(true);
         order.setShipmentMethod(surface);
         order.setShipment(shipment);
